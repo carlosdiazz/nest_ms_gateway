@@ -1,5 +1,7 @@
 export { CreateOrderDto } from './dto/create-order.dto';
-export { UpdateOrderDto } from './dto/update-order.dto';
+export { OrdersAllDto, StatusDto } from './dto/orders-all.dto';
+
+export { OrderStatus, OrdersStatusList } from './enum/order-enum';
 
 export { Order } from './entities/order.entity';
 
