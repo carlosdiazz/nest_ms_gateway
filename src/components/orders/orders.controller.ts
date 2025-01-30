@@ -26,10 +26,8 @@ export class OrdersController {
 
   @Post()
   private create(@Body() createOrderDto: CreateOrderDto) {
-    console.log(createOrderDto);
     return this.ordersClient.send('createOrder', createOrderDto).pipe(
       catchError((err) => {
-        console.log(err);
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         throw new RpcException(err);
       }),
