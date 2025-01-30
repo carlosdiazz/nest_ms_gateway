@@ -12,9 +12,9 @@ import {
 } from '@nestjs/common';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { catchError, firstValueFrom } from 'rxjs';
-import { PaginationDto } from 'src/common';
 
 //Propio
+import { PaginationDto } from 'src/common';
 import { NAME_PRODUCT_SERVICE } from 'src/config';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -31,6 +31,7 @@ export class ProductsController {
       .send({ name: 'create_product' }, createProductDto)
       .pipe(
         catchError((err) => {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           throw new RpcException(err);
         }),
       );
@@ -42,6 +43,7 @@ export class ProductsController {
       .send({ name: 'find_all_product' }, paginationDto)
       .pipe(
         catchError((err) => {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           throw new RpcException(err);
         }),
       );
@@ -73,6 +75,7 @@ export class ProductsController {
       )
       .pipe(
         catchError((err) => {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           throw new RpcException(err);
         }),
       );
@@ -93,6 +96,7 @@ export class ProductsController {
       )
       .pipe(
         catchError((err) => {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           throw new RpcException(err);
         }),
       );

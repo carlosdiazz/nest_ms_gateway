@@ -20,7 +20,7 @@ export class RpcCustomExceptionFilter implements ExceptionFilter {
       return response.status(status).json(rpcError);
     }
 
-    response.status(401).json({
+    response.status(500).json({
       status: 500,
       message: 'Error Desconocido',
     });
