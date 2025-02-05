@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 //Propio
-import { ProductsModule } from 'src/components';
+import { AuthModule, ProductsModule } from 'src/components';
 import { OrdersModule } from 'src/components/orders';
 
 @Module({
-  imports: [ProductsModule, OrdersModule],
+  imports: [ProductsModule, OrdersModule, AuthModule],
 })
 export class AppModule {}
