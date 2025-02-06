@@ -8,6 +8,7 @@ import {
   ParseUUIDPipe,
   Query,
   Patch,
+  UseGuards,
 } from '@nestjs/common';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { catchError } from 'rxjs';
@@ -20,7 +21,9 @@ import {
 } from 'src/config';
 import { OrdersAllDto, StatusDto } from './dto/orders-all.dto';
 import { PaginationDto } from 'src/common';
+import { AuthGuard } from '../auth/auth.guard';
 
+@UseGuards(AuthGuard)
 @Controller('orders')
 export class OrdersController {
   constructor(
