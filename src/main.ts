@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { Logger, ValidationPipe } from '@nestjs/common';
+import { Logger, RequestMethod, ValidationPipe } from '@nestjs/common';
 
 //Propio
 import { AppModule } from './app/app.module';
@@ -18,7 +18,14 @@ async function bootstrap() {
     }),
   );
 
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('api', {
+    exclude: [
+      {
+        path: '',
+        method: RequestMethod.GET,
+      },
+    ],
+  });
   app.useGlobalFilters(new RpcCustomExceptionFilter());
 
   await app.listen(envs.PORT);
