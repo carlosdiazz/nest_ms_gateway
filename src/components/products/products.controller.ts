@@ -9,7 +9,7 @@ import {
   Patch,
   Post,
   Query,
-  UseGuards,
+  //  UseGuards,
 } from '@nestjs/common';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { catchError, firstValueFrom } from 'rxjs';
@@ -22,9 +22,9 @@ import {
 } from 'src/config';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { AuthGuard } from '../auth/auth.guard';
+//import { AuthGuard } from '../auth/auth.guard';
 
-@UseGuards(AuthGuard)
+//@UseGuards(AuthGuard)
 @Controller('products')
 export class ProductsController {
   constructor(
